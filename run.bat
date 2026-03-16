@@ -1,16 +1,18 @@
 @echo off
-title NovaStore Yonetim Paneli
-color 0A
-
-echo =======================================================
-echo       NOVASTORE YONETIM PANELI BASLATILIYOR...
-echo =======================================================
-echo.
-echo Sunucu ayaga kaldiriliyor, lutfen bekleyin...
-echo Tarayici otomatik olarak acilacaktir.
+title AuraShop Yonetim Paneli
+echo =========================================
+echo    AuraShop Yonetim Paneli Baslatiliyor
+echo =========================================
 echo.
 
-:: Vite sunucusunu başlatır ve tarayıcıyı otomatik açar (--open)
-npm run dev -- --open
+if not exist "node_modules" (
+    echo [!] Sistem altyapisi (node_modules) bulunamadi.
+    echo [!] Otomatik kurulum basliyor, lutfen bekleyin...
+    npm install
+    echo.
+    echo [+] Kurulum tamamlandi!
+)
 
+echo [*] Panel ayaga kaldiriliyor...
+npm run dev
 pause
